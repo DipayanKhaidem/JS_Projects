@@ -10,6 +10,7 @@ html,body{
 :root{
     /* Background colors */
     --bg-primary-color:#1b1b1b;
+    --bg-fill-color:#fdfdfc;
 
 
     /* Text Colors */
@@ -67,12 +68,15 @@ section .infos{
     border: 1px solid var(--border-primary-color);
     flex-grow: 1; 
     display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(30px,1fr));
-    grid-template-rows: repeat(auto-fill,30px);
+    grid-template-columns: repeat(auto-fill,minmax(50px,1fr));
+    grid-template-rows: repeat(auto-fill,minmax(50px,1fr));
 }
 
 .block{
-    width:30px;
-    height:30px;
+    /* width:30px;
+    height:30px; */
     border:1px solid var(--border-primary-color);
+}
+.fill{
+    background-color:var(--bg-fill-color);
 }
