@@ -4,6 +4,8 @@ const modal=document.querySelector(".modal");
 const startGameModal=document.querySelector(".start-game");
 const gameOverModal=document.querySelector(".game-over");
 const restartButton=document.querySelector(".btn-restart");
+const highScoreElement=document.querySelector("#high-score");
+const  score=document.querySelector("#score");
 
 const blockHeight=50
 const blockWidth=50
@@ -88,9 +90,23 @@ startButton.addEventListener("click",()=>{
 restartButton.addEventListener("click",restartGame)
 
 function restartGame(){
+
+    //remove the previous state of the game
+    blocks[`${food.x}-${food.y}`].classList.remove("food")
+    snake.forEach(segment=>{
+        blocks[`${segment.x}-${segment.y}`].classList.remove("fill");
+    })
+
+    //stop the previous interval
+   clearInterval(intervalId);
+
 modal.style.display="none";
+direction="down";
 snake=[{x:1,y:3}];
-food={x:Math.floor(Math.random()*rows),y:Math.floor(Math.random()*cols)}
+food={x:Math.floor(Math.random()*rows),
+    y:Math.floor(Math.random()*cols)}
+
+    //start a fresh interval
 intervalId=setInterval(()=>{render()},300)
 
 }
